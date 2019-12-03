@@ -3,7 +3,9 @@ package com.example.expandablelistview;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ExpandableListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,6 +29,37 @@ public class MainActivity extends AppCompatActivity {
 
         customAdapter = new CustomAdapter(this,listDataHeader,listDataChild);
         expandableListView.setAdapter(customAdapter);
+
+        //Hader click listener
+        expandableListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+            @Override
+            public boolean onGroupClick(ExpandableListView parent,
+                                        View v, int groupPosition, long id) {
+                String groupName = listDataHeader.get(groupPosition);
+                Toast.makeText(MainActivity.this, groupName+"click", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
+        //Header collapsed listener
+        expandableListView.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
+            @Override
+            public void onGroupCollapse(int groupPosition) {
+                String groupName = listDataHeader.get(groupPosition);
+                Toast.makeText(MainActivity.this, groupName+"is collapsed", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        //child click listener
+        expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+                String childName = listDataChild.get(listDataHeader.get(groupPosition)).get(childPosition);
+                Toast.makeText(MainActivity.this, childName, Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
+
     }
 
     private void prepareListData() {
