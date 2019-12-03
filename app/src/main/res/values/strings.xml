@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">ExpandableListView</string>
+    
+    <string-array name="abbreviation_list_hader">
+        <item>CSE</item>
+        <item>EEE</item>
+        <item>IT</item>
+        <item>BBA</item>
+        <item>TxE</item>
+        <item>SWE</item>
+        <item>FNE</item>
+        <item>LLB</item>
+    </string-array>
+
+    <string-array name="abbreviation_list_child">
+        <item>Computer Science Engineering(CSE)</item>
+        <item>Electrical and Electronics Engineering(EEE)</item>
+        <item>Information Technology(IT)</item>
+        <item>Bachelor 0f Business Administration(BBA)</item>
+        <item> Textile Engineering(TxE)</item>
+        <item>Software Engineer(SWE)</item>
+        <item>Food And Nutrition Engineering(FNE)</item>
+        <item>Bachelor of Legislative Law(LLB)</item>
+    </string-array>
+</resources>
